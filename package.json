@@ -1,0 +1,19 @@
+{
+  "name": "questionsandanswers",
+  "version": "1.0.0",
+  "description": "um projeto de perguntas e respostas (like yahoo ask)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reita009/QuestionsAndAnswers.git"
+  },
+  "author": "Julio Santana (Reita)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reita009/QuestionsAndAnswers/issues"
+  },
+  "homepage": "https://github.com/reita009/QuestionsAndAnswers#readme"
+}
