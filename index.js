@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
 
+//new partials
+//<%- include ('partials/header.ejs);%>
+
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 
