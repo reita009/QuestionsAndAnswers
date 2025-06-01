@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const connection = require("./database/database");
+const Ask = require("./database/ask");
 
 //Database
 connection
@@ -35,7 +36,14 @@ app.get("/ask", (req, res) => {
 app.post("/saveask", (req, res) => {
   let title = req.body.title;
   let desc = req.body.desc;
-  res.send(`Formulario recebido (${title})  (${desc})`);
+  Ask.create({
+    title: title,
+    desc: desc,
+  }).then(() => {
+    console.log("Dados inserido com Sucesso!");
+    res.redirect("/");
+  });
+  //res.send(`Formulario recebido (${title})  (${desc})`);
 });
 
 app.listen(8080, (err) => {
