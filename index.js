@@ -36,6 +36,22 @@ app.get("/ask", (req, res) => {
   res.render("ask");
 });
 
+app.get("/ask/:id", (req, res) => {
+  let id = req.params.id;
+  Ask.findOne({
+    where: { id: id },
+  }).then((ask) => {
+    if (ask != undefined) {
+      res.render("oneAsk", {
+        ask: ask,
+      });
+      // res.render("oneAsk");
+    } else {
+      res.redirect("/");
+    }
+  });
+});
+
 app.post("/saveask", (req, res) => {
   let title = req.body.title;
   let desc = req.body.desc;
