@@ -2,9 +2,21 @@
 <body>
   <div class="container">
     <hr />
-    <h1><%= ask.title %></h1>
-    <p><%= ask.desc %></p>
+    <h1 style="color: #f5f6fa"><%= ask.title %></h1>
+    <p style="color: #44bd32"><%= ask.desc %></p>
     <hr />
+    <form action="">
+      <h3>Responda</h3>
+      <label style="color: #f5f6fa "">Resposta</label>
+      <textarea
+        style="background-color: #b2bec3"
+        class="form-control"
+        name="body"
+        placeholder="Digite sua resposta"
+      ></textarea>
+      <br />
+      <button type="submit" class="btn btn-success">Responder</button>
+    </form>
   </div>
 </body>
 
