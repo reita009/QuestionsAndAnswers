@@ -5,7 +5,7 @@
     <h1 style="color: #f5f6fa"><%= ask.title %></h1>
     <p style="color: #44bd32"><%= ask.desc %></p>
     <hr />
-    <form action="">
+    <form action="/answers" method="POST">
       <h3>Responda</h3>
       <label style="color: #f5f6fa "">Resposta</label>
       <textarea
@@ -14,9 +14,18 @@
         name="body"
         placeholder="Digite sua resposta"
       ></textarea>
+      <input type="hidden" name="ask" value="<%= ask.id %>">
       <br />
       <button type="submit" class="btn btn-success">Responder</button>
     </form>
+    <hr>
+    <h3>Respostas</h3>
+    <% answers.forEach(answer =>{ %>
+      <br>
+        <div class="card" style="background-color: #B2BEC3;">
+          <div class="card-body"><%= answer.body %></div>
+        </div>
+      <% }) %> <br>
   </div>
 </body>
 

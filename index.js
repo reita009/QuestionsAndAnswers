@@ -43,9 +43,16 @@ app.get("/ask/:id", (req, res) => {
     where: { id: id },
   }).then((ask) => {
     if (ask != undefined) {
-      res.render("oneAsk", {
-        ask: ask,
+      Answers.findAll({
+        where: { askId: id },
+        order: [["id", "DESC"]],
+      }).then((answers) => {
+        res.render("oneAsk", {
+          ask: ask,
+          answers: answers,
+        });
       });
+
       // res.render("oneAsk");
     } else {
       res.redirect("/");
@@ -64,6 +71,17 @@ app.post("/saveask", (req, res) => {
     res.redirect("/");
   });
   //res.send(`Formulario recebido (${title})  (${desc})`);
+});
+app.post("/answers", (req, res) => {
+  let body = req.body.body;
+  let askId = req.body.ask;
+
+  Answers.create({
+    body: body,
+    askId: askId,
+  }).then(() => {
+    res.redirect("/ask/" + askId);
+  });
 });
 
 app.listen(8080, (err) => {
