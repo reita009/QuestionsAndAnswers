@@ -1,7 +1,25 @@
 <%- include ('partials/header.ejs');%>
 <body>
   <%- include ('partials/navbar.ejs');%>
-  <h1>ola</h1>
+  <div class="container">
+    <hr />
+    <h1 style="color: #f5f6fa">Perguntas</h1>
+    <hr />
+    <a href="/ask" class="btn btn-success">Perguntar</a>
+    <hr />
+    <% askList.forEach(ask =>{%>
+    <br />
+    <div class="card" style="background-color: #b2bec3">
+      <div class="card-body">
+        <h3><%= ask.title %></h3>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-success" type="submit">Responder</button>
+      </div>
+    </div>
+
+    <%})%>
+  </div>
 </body>
 
 <%- include ('partials/footer.ejs');%>

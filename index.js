@@ -26,7 +26,10 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-  res.render("index");
+  Ask.findAll({ raw: true, order: [["id", "DESC"]] }).then((askList) => {
+    console.log(askList);
+    res.render("index", { askList: askList });
+  });
 });
 
 app.get("/ask", (req, res) => {
