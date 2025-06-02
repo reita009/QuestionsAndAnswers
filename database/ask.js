@@ -1,6 +1,5 @@
 const Sequelize = require("sequelize");
 const connection = require("./database");
-const { type } = require("os");
 
 const Ask = connection.define("ask", {
   title: {
